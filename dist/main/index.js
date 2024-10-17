@@ -30997,6 +30997,7 @@ async function $60cd25693160ed07$var$ensureStaticRegistryTool() {
 }
 async function $60cd25693160ed07$var$run() {
     let cratePathsPattern = $5tPV0.getInput("crates");
+    let registryDir = $5tPV0.getInput("registry-dir");
     let cratePathsGlob = await $0236664bf3fd7791$exports.create(cratePathsPattern, {
         matchDirectories: false
     });
@@ -31006,7 +31007,7 @@ async function $60cd25693160ed07$var$run() {
         for (const cratePath of cratePaths)await $fc156184d531de2c$exports.getExecOutput("margo", [
             "add",
             "--registry",
-            ".",
+            registryDir,
             cratePath
         ]);
     });
